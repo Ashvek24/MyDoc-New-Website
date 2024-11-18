@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile - MyDoc</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f8fb;
+      color: #333;
+    }
+
+    header {
+      background-color: #007bff;
+      color: #fff;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+    }
+
+    header:hover {
+      background-color: #0056b3;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    header nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .container:hover {
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 24px;
+      color: #007bff;
+      font-weight: 600;
+    }
+
+    .profile-section {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #f4f4f4;
+      padding-bottom: 20px;
+    }
+
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: #ddd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 40px;
+      color: #fff;
+      font-weight: bold;
+      background-color: #007bff;
+      margin-right: 30px;
+      transition: background-color 0.3s ease;
+    }
+
+    .profile-pic:hover {
+      background-color: #0056b3;
+    }
+
+    .profile-info {
+      flex-grow: 1;
+    }
+
+    .profile-info h3 {
+      font-size: 26px;
+      margin-bottom: 10px;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .profile-info p {
+      margin: 5px 0;
+      font-size: 16px;
+      color: #555;
+    }
+
+    .edit-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 25px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .edit-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .appointments {
+      margin-top: 30px;
+    }
+
+    .appointments table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .appointments th,
+    .appointments td {
+      border: 1px solid #ddd;
+      padding: 15px;
+      text-align: left;
+      font-size: 16px;
+    }
+
+    .appointments th {
+      background-color: #f8f9fa;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .appointments td {
+      background-color: #ffffff;
+      color: #555;
+    }
+
+    .appointments .no-data {
+      text-align: center;
+      color: #777;
+      font-size: 16px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    footer a:hover {
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .profile-section {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .profile-pic {
+        margin-bottom: 15px;
+      }
+
+      .container {
+        padding: 20px;
+      }
+
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Mydoc</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="logout.html">Logout</a>
+    </nav>
+  </header>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Profile Section -->
+    <section class="profile-section">
+      <div class="profile-pic" id="profile-pic">A</div>
+      <div class="profile-info">
+        <h3 id="profile-name">John Doe</h3>
+        <p id="profile-email">johndoe@example.com</p>
+        <p id="profile-phone">+123 456 7890</p>
+        <a href="edit-profile.html" class="edit-btn">Edit Profile</a>
+      </div>
+    </section>
+
+    <!-- Appointment History -->
+    <section class="appointments">
+      <h2>Appointment History</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Doctor</th>
+            <th>Specialty</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="appointment-history">
+          <tr>
+            <td colspan="4" class="no-data">No appointments found.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2024 MyDoc. All rights reserved.
+  </footer>
+
+  <script>
+    // Simulate fetching user profile and appointments
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+    if (!isLoggedIn) {
+      alert("You need to log in to access the profile page.");
+      window.location.href = "login.html";
+    }
+
+    // Display user data if available
+    if (userData) {
+      document.getElementById('profile-pic').textContent = userData.name.charAt(0).toUpperCase();
+      document.getElementById('profile-name').textContent = userData.name;
+      document.getElementById('profile-email').textContent = userData.email;
+      document.getElementById('profile-phone').textContent = userData.phone;
+    }
+
+    // Simulate appointments data
+    const appointments = [
+      { date: "2024-11-20", doctor: "Dr. Alice", specialty: "Cardiology", status: "Completed" },
+      { date: "2024-11-25", doctor: "Dr. Bob", specialty: "Dermatology", status: "Scheduled" }
+    ];
+
+    const appointmentHistory = document.getElementById('appointment-history');
+    if (appointments.length > 0) {
+      appointmentHistory.innerHTML = appointments.map(appointment => `
+        <tr>
+          <td>${appointment.date}</td>
+          <td>${appointment.doctor}</td>
+          <td>${appointment.specialty}</td>
+          <td>${appointment.status}</td>
+        </tr>
+      `).join('');
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup - Mydoc</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #007bff, #00c6ff);
+      color: #333;
+    }
+
+    /* Center the auth section */
+    .auth-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    /* Auth container */
+    .auth-container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Header */
+    .auth-container h1 {
+      font-size: 32px;
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+
+    .auth-container h2 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .auth-container p {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    /* Auth form */
+    .auth-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .auth-form label {
+      text-align: left;
+      font-weight: bold;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .auth-form input {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: box-shadow 0.3s, border 0.3s;
+    }
+
+    .auth-form input:focus {
+      border: 1px solid #007bff;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+      outline: none;
+    }
+
+    .auth-form button {
+      padding: 12px;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .auth-form button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    /* Link */
+    .auth-form p {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .auth-form p a {
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .auth-form p a:hover {
+      color: #0056b3;
+    }
+
+    /* Media Query for smaller screens */
+    @media (max-width: 480px) {
+      .auth-container {
+        padding: 20px;
+      }
+
+      .auth-container h1 {
+        font-size: 28px;
+      }
+
+      .auth-container h2 {
+        font-size: 20px;
+      }
+
+      .auth-form button {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="auth-section">
+    <div class="auth-container">
+      <h1><i class="fas fa-user-plus"></i> Mydoc</h1>
+      <h2>Join Us Today!</h2>
+      <p>Create an account to book appointments and access health services.</p>
+      <form id="signup-form" class="auth-form">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Create a password" required>
+
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+
+        <button type="submit"><i class="fas fa-user-plus"></i> Signup</button>
+
+        <p>Already have an account? <a href="login.html">Login</a></p>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    const signupForm = document.getElementById('signup-form');
+
+    signupForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const confirmPassword = document.getElementById('confirm-password').value.trim();
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match. Please try again.");
+        return;
+      }
+
+      const userData = { name, email, phone, password };
+      localStorage.setItem('userData', JSON.stringify(userData));
+      localStorage.setItem('isLoggedIn', 'true');
+
+      alert("Signup successful! Redirecting to the homepage...");
+      window.location.href = "index.html";
+    });
+  </script>
+  <script src="firebaseConfig.js" type="module"></script>
+  <script src="scripts/signup.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - MyDoc</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        h2 {
+            font-size: 28px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .contact-form {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 600px;
+            margin: auto;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .contact-form input[type="submit"] {
+            background-color: #2c3e50;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        .contact-form input[type="submit"]:hover {
+            background-color: #34495e;
+        }
+        .contact-info {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 18px;
+        }
+        .contact-info a {
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>MyDoc - Contact Us</h1>
+</header>
+
+<div class="container">
+    <h2>Get In Touch</h2>
+    <div class="contact-form">
+        <form action="mailto:mydoc1234567@gmail.com" method="post" enctype="text/plain">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+
+            <input type="submit" value="Send Message">
+        </form>
+    </div>
+
+    <div class="contact-info">
+        <p>If you have any questions or need assistance, feel free to <a href="mailto:mydoc1234567@gmail.com">contact us via email</a>.</p>
+        <p>We will get back to you as soon as possible!</p>
+    </div>
+</div>
+
+</body>
+</html>
